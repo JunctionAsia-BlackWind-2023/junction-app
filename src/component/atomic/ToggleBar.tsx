@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     borderTopColor: "#CAC4D3",
     borderTopWidth: 1,
     minHeight: 58,
+    backgroundColor:"#fff"
   },
   text: { flex: 1 },
 });

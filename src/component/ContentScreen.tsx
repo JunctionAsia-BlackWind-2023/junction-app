@@ -9,10 +9,10 @@ interface ContentScreenProps {
 export default function ContentScreen(props: ContentScreenProps) {
   const { title, children } = props;
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <View style={styles.empty}></View>
       <Text style={styles.title}>{title}</Text>
-      <View>{children}</View>
+      <View style={{ flex: 1}}>{children}</View>
     </View>
   );
 }

@@ -6,14 +6,25 @@ import RiderSvg from "../../assets/rider.svg";
 import EventSvg from "../../assets/event.svg";
 import ProfileSvg from "../../assets/profile.svg";
 
-export default function TabBar() {
+const tabs = [MapSvg, CardSvg, RiderSvg, EventSvg, ProfileSvg];
+
+interface TabBarProps {
+  setIdx: (value: number) => void;
+}
+
+export default function TabBar(props: TabBarProps) {
+  const { setIdx } = props;
   return (
     <View style={styles.container}>
-      <WithLocalSvg width={28} height={28} asset={MapSvg} />
-      <WithLocalSvg width={28} height={28} asset={CardSvg} />
-      <WithLocalSvg width={28} height={28} asset={RiderSvg} />
-      <WithLocalSvg width={28} height={28} asset={EventSvg} />
-      <WithLocalSvg width={28} height={28} asset={ProfileSvg} />
+      {tabs.map((v, i) => (
+        <View
+          onTouchEndCapture={() => {
+            setIdx(i);
+          }}
+        >
+          <WithLocalSvg width={28} height={28} asset={v} />
+        </View>
+      ))}
     </View>
   );
 }
